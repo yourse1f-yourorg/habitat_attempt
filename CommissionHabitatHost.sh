@@ -14,7 +14,8 @@ fi
 if ! echo "${REMOTE_HOST}" | grep -E "^.{2,}$" > /dev/null 2>&1 ; then
     echo "
     Error : Environment variable REMOTE_HOST '${REMOTE_HOST}' seems too short.";
-    echo "REMOTE_HOST should be the domaina name or IP addr of the host where Habitat will be installed.";
+    echo "
+        REMOTE_HOST should be the domain name or IP addr of the host where Habitat will be installed.";
     SANE="false";
 fi
     
@@ -38,7 +39,7 @@ if echo "${PATH_HABITAT_BINARY}" | grep -E "^.{2,}$" > /dev/null 2>&1 ; then
   fi
 else
   echo "
-  Error : PATH_HABITAT_BINARY must specify the absolute path to the 'hab' binary.";
+    Error : PATH_HABITAT_BINARY must specify the absolute path to the 'hab' binary.";
   SANE="false";    
 fi
 

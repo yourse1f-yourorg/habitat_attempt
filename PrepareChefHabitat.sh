@@ -25,6 +25,9 @@ if echo "${HAB_PASSWD}" | grep -E "^.{8,}$" > /dev/null 2>&1 ; then
   echo "${PRETTY} adding user '${HAB_USER}' to sudoers . . .  ";
   sudo usermod -aG sudo ${HAB_USER};
 
+  echo "${PRETTY} let '${HAB_USER}' user work without password . . .  ";
+  echo "hab ALL=(ALL) NOPASSWD:ALL" | (sudo su -c 'EDITOR="tee" visudo -f /etc/sudoers.d/hab') > /dev/null; 
+
   echo "${PRETTY} adding caller's credentials to authorized SSH keys of '${HAB_USER}' . . .  ";
   
   sudo mkdir -p ${HAB_SSH_DIR};
