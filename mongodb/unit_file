@@ -8,4 +8,3 @@ ExecStart=/usr/bin/hab start billmeyer/mongodb/3.2.6/20160824195527
 
 [Install]
 WantedBy=multi-user.target
-

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-SERVICE=mongodb;
+SERVICE=nginx;
 UNIT_FILE=${SERVICE}.service;
 RUNNER=run_${SERVICE}.sh;
 REMOTE_HAB_USER=hab;
@@ -20,3 +20,4 @@ scp ${SERVICE}/runner.sh  ${REMOTE_HAB_USER}@${REMOTE_HOST}:/home/${REMOTE_HAB_U
 echo "--> Run the '${SERVICE}' runner as user: '${REMOTE_HAB_USER}' . . .";
 # echo "ssh -t ${REMOTE_HAB_USER}@${REMOTE_HOST} ./${SERVICE}/${RUNNER};";
 ssh -qt ${REMOTE_HAB_USER}@${REMOTE_HOST} ./${SERVICE}/${RUNNER};
+
