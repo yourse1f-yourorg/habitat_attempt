@@ -4,7 +4,7 @@ Documentation=man:mongod(1)
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/hab start billmeyer/mongodb/3.2.6/20160824195527
+ExecStart=/usr/local/bin/hab start billmeyer/mongodb
 
 [Install]
 WantedBy=multi-user.target

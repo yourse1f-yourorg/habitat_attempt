@@ -1,5 +1,17 @@
 #!/bin/sh
 #
+SCRIPT=$(readlink -f "$0");
+SCRIPTPATH=$(dirname "$SCRIPT");
+# echo "Absolute path of this script is ${SCRIPTPATH}.";
+
+# Get shell constants
+. ${SCRIPTPATH}/constants.sh;
+
+# Get package push script
+. ${SCRIPTPATH}/PushPackageToTargetHost.sh;
+
+     pushToHost mongodb;
+exit;
 
 PREP_SCRIPT=PrepareChefHabitat.sh;
 SANE="true";
@@ -31,14 +43,13 @@ if ! echo "${REMOTE_HABITAT_PASSWD}" | grep -E "^.{8,}$" > /dev/null 2>&1 ; then
     SANE="false";
 fi
 
-REMOTE_HAB_USER=habuser;
 if ${SANE} = "true"; then
 
     echo "--> Send public key that represents '${USER}' to host '${REMOTE_HOST}'. . . ";
     scp ${HOME}/.ssh/id_rsa.pub ${REMOTE_HOST}:/home/${REMOTE_HOST_USER}/ > /dev/null;
 
     echo "--> Send script, that preps host for Habitat, to host '${REMOTE_HOST}' . . . ";
-    scp ${PREP_SCRIPT} ${REMOTE_HOST}:/home/${REMOTE_HOST_USER}/;
+    scp ${SCRIPTPATH}/${PREP_SCRIPT} ${REMOTE_HOST}:/home/${REMOTE_HOST_USER}/;
 
     echo "--> Prepare Habitat user and executable : '${REMOTE_HAB_USER}' . . .";
     ssh -t ${REMOTE_HOST} ./${PREP_SCRIPT} ${REMOTE_HAB_USER} ${REMOTE_HABITAT_PASSWD};

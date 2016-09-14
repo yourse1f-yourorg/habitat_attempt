@@ -14,11 +14,11 @@ MetHabi works in several phases :
 
 ### Initial Hook Up
 
-MetHabi needs to create a user account `habuser` on your target server.  This account will have passwordless `sudo` privileges for running [Chef Habitat](https://www.habitat.sh/).  It also needs to install the Habitat executable also called `hab`.
+MetHabi needs to create a user account `hab` on your target server.  This account will have passwordless `sudo` privileges for running [Chef Habitat](https://www.habitat.sh/).  It also needs to install the Habitat executable also called `hab`.
 
 The script `CommissionHabitatHost.sh` attempts to connect to the target server and upload a remotely callable shell script `PrepareChefHabitat.sh`.
 
-`PrepareChefHabitat.sh` creates a user called `habuser` and then obtains `hab` and prepares it for use.
+`PrepareChefHabitat.sh` creates a user called `hab` and then obtains `hab` and prepares it for use.
 
 
 ### First Deployment

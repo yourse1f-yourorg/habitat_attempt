@@ -5,7 +5,7 @@ After=syslog.target network.target remote-fs.target nss-lookup.target
 [Service]
 Type=simple
 PIDFile=/run/habitat_nginx.pid
-ExecStart=/usr/bin/hab start core/nginx/1.10.1/20160902203245
+ExecStart=/usr/local/bin/hab start core/nginx/1.10.1
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 PrivateTmp=true
