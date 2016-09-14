@@ -1,5 +1,29 @@
-# habitat_attempt
-Begin creating a deployment process for Meteor applications
+# MetHabi
+
+A deployment process for Meteor applications, built from Chef Habitat
+
+Specific Task.  Standard Tools.
+
+## Overview
+
+MetHabi works in several phases :
+
+1. Initial hook up to your target server
+2. First time deployment
+3. Subsequent deployments
+
+### Initial Hook Up
+
+MetHabi needs to create a user account `habuser` on your target server.  This account will have passwordless `sudo` privileges for running [Chef Habitat](https://www.habitat.sh/).  It also needs to install the Habitat executable also called `hab`.
+
+The script `CommissionHabitatHost.sh` attempts to connect to the target server and upload a remotely callable shell script `PrepareChefHabitat.sh`.
+
+`PrepareChefHabitat.sh` creates a user called `habuser` and then obtains `hab` and prepares it for use.
+
+
+### First Deployment
+
+MetHabi
 
 ### Steps
 
@@ -14,11 +38,11 @@ Begin creating a deployment process for Meteor applications
   1. [billmeyer/mongodb](https://app.habitat.sh/#/pkgs/billmeyer/mongodb/3.2.6/20160824195527)
   2. [looprock/node](https://app.habitat.sh/#/pkgs/looprock/node/4.4.7/20160710215340)
   3. [core/nginx](https://app.habitat.sh/#/pkgs/core/nginx/1.10.1/20160818203156)
-1. 
-1. 
-1. 
-1. 
-1. 
-1. 
-1. 
+1.
+1.
+1.
+1.
+1.
+1.
+1.
 
