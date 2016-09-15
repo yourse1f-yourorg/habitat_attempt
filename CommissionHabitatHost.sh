@@ -10,9 +10,6 @@ SCRIPTPATH=$(dirname "$SCRIPT");
 # Get package push script
 . ${SCRIPTPATH}/PushPackageToTargetHost.sh;
 
-     pushToHost mongodb;
-exit;
-
 PREP_SCRIPT=PrepareChefHabitat.sh;
 SANE="true";
 
@@ -55,6 +52,9 @@ if ${SANE} = "true"; then
     ssh -t ${REMOTE_HOST} ./${PREP_SCRIPT} ${REMOTE_HAB_USER} ${REMOTE_HABITAT_PASSWD};
 
     echo "--> Back from remote procedure to prepare Habitat on '${REMOTE_HOST}'.";
+
+    echo "--> Install MongoDB on '${REMOTE_HOST}'.";
+    pushToHost mongodb;
 
 else
 
